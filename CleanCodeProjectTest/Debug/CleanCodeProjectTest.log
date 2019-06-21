@@ -1,5 +1,3 @@
-﻿  pch.cpp
-  CityTest.cpp
+﻿  CityTest.cpp
   C:\Users\layno\source\repos\CleanCodeProject\CleanCodeProject\City.cpp(115) : warning C4715: 'City::isEveryCrossroadReachableFrom': not all control paths return a value
-     Creating library C:\Users\layno\source\repos\CleanCodeProject\Debug\CleanCodeProjectTest.lib and object C:\Users\layno\source\repos\CleanCodeProject\Debug\CleanCodeProjectTest.exp
   CleanCodeProjectTest.vcxproj -> C:\Users\layno\source\repos\CleanCodeProject\Debug\CleanCodeProjectTest.dll

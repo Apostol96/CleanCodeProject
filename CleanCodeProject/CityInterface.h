@@ -16,5 +16,6 @@ private:
 	void printCurrentCrossroadNeighbours();
 	void close(const std::string& name);
 	void open(const std::string& name);
-	void closed();
+	void printClosedCrossroads();
+	void processCommand(const std::string& command);
 };

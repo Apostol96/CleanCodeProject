@@ -1,8 +1,8 @@
-#include "City.h"
+#include "CityInterface.h"
 
 int main()
 {
-	City popovo;
+	/*City popovo;
 	popovo.addCrossroad("svetofarite");
 	popovo.addCrossroad("malkiqBoncho");
 	popovo.addStreet("svetofarite", "malkiqBoncho", 50);
@@ -13,6 +13,8 @@ int main()
 	popovo.addCrossroad("panairnata");
 	popovo.addStreet("gradskata", "panairnata", 90);
 	popovo.addStreet("gradskata", "svetofarite", 200);
-	std::cout << popovo.isThereAPath("svetofarite", "panairnata");
+	std::cout << popovo.isThereAPath("svetofarite", "panairnata");*/
+	CityInterface popovo;
+	popovo.startCityInterface();
 	return 0;
 }
