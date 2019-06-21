@@ -16,5 +16,6 @@ int main()
 	std::cout << popovo.isThereAPath("svetofarite", "panairnata");*/
 	CityInterface popovo;
 	popovo.startCityInterface();
+	//std::cout << "You've exited the city\n";
 	return 0;
 }

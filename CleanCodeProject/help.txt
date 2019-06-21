@@ -1,0 +1,32 @@
+This is the help document, which contains the list of commands you can use 
+and tells you how to use them.
+
+location - takes no arguments, prints the name of the crossroad you are
+currently on.
+
+moveTo - takes one argument - a name of a crossroad - and moves the
+current position to the crossroad if it exists.
+
+neighbours - takes no arguments, prints the current crossroad's
+neighbourly crossroads.
+
+close - takes one argument - a name of a crossroad - and closes it
+down if it exists.
+
+open - takes one argument - a name of a crossroad - and opens it up
+if it exists.
+
+closed - takes no arguments, prints the names of the closed crossroads.
+
+addCrossroad - takse one argument - the name of the crossroad you want
+to add.
+
+addStreet - takes three arguments - the name of the crossroad, from which
+the street will start, the name of the crossroad, in which the street
+will end and the length of the street.
+
+--------------------------------------------------------------------------
+
+To exit the program use ctrl+z.
+
+If you want to see the list of commands again, type "help".

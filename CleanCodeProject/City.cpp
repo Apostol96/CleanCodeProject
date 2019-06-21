@@ -1,4 +1,5 @@
 #include "City.h"
+#include <assert.h>
 
 void City::Crossroad::open()
 {
@@ -45,10 +46,19 @@ void City::addStreet(const std::string& from, const std::string& to, int length)
 {
 	Crossroad* findFrom = find(from);
 	Crossroad* findTo = find(to);
-	if (findFrom && findTo && !isThereAStreet(findFrom, findTo))
+	bool doesStreetExist = isThereAStreet(findFrom, findTo);
+	if (findFrom && findTo && !doesStreetExist)
 	{
 		Crossroad::edge street = std::make_pair(findTo, length);
 		findFrom->adj.push_back(street);
+	}
+	else if (doesStreetExist)
+	{
+		std::cout << "Street already exists!\n";
+	}
+	else
+	{
+		//exception
 	}
 }
 
@@ -81,7 +91,7 @@ void City::changeCurrentCrossroadTo(const std::string& name)
 	}
 	else
 	{
-		std::cout << name << " isn't a name of a crossroad";
+		std::cout << name << " isn't a name of a crossroad.\n";
 	}
 }
 
@@ -169,6 +179,10 @@ void City::closeCrossroad(const std::string& name)
 	{
 		findCrossroad->close();
 	}
+	else
+	{
+		//exception
+	}
 }
 
 void City::openCrossroad(const std::string& name)
@@ -177,6 +191,10 @@ void City::openCrossroad(const std::string& name)
 	if (findCrossroad)
 	{
 		findCrossroad->open();
+	}
+	else
+	{
+		//exception
 	}
 }
 
@@ -206,6 +224,9 @@ City::Crossroad* City::find(const std::string& name)
 
 bool City::isThereAStreet(Crossroad* from, Crossroad* to)
 {
+	assert(from != nullptr);
+	assert(to != nullptr);
+
 	std::vector<Crossroad::edge>::iterator itr = from->adj.begin();
 	
 	for (itr; itr != from->adj.end(); ++itr)
@@ -219,6 +240,9 @@ bool City::isThereAStreet(Crossroad* from, Crossroad* to)
 
 bool City::isThereAPath(Crossroad* from, Crossroad* to, bool& found)
 {
+	assert(from != nullptr);
+	assert(to != nullptr);
+
 	from->check();
 	
 	std::vector<std::pair<Crossroad*, int>>::iterator itr = from->adj.begin();
@@ -241,6 +265,7 @@ bool City::isThereAPath(Crossroad* from, Crossroad* to, bool& found)
 
 bool City::isPartOfCycle(Crossroad* crossroad)
 {
+	assert(crossroad != nullptr);
 	bool found = false;
 	return isThereAPath(crossroad, crossroad, found);
 }
@@ -257,6 +282,8 @@ void City::resetCheckedCrossroads()
 
 bool City::isCityConnected(Crossroad* crossroad)
 {
+	assert(crossroad != nullptr);
+
 	traverseCityFrom(crossroad);
 
 	bool allCrossroadsChecked = areAllCrossroadsChecked();
@@ -298,6 +325,8 @@ bool City::areAllCrossroadsChecked()
 
 int City::printDeadEndStreetsStartingFrom(Crossroad* crossroad)
 {
+	assert(crossroad != nullptr);
+
 	int numberOfClosedStreets = 0;
 	std::vector<Crossroad::edge>::iterator itr = crossroad->adj.begin();
 	for (itr; itr != crossroad->adj.end(); ++itr)
